@@ -235,6 +235,17 @@ Buffer::Buffer(Buffer & other) {
     setRange(0, other, 0, other.getSize());
 }
 
+Buffer::Buffer(Buffer && other)
+  : size(std::move(other.size)),
+    original(std::move(other.original)),
+    owner(std::move(other.owner)),
+    exists(std::move(other.exists)),
+    dirty(std::move(other.dirty)),
+    cpuPtr(std::move(other.cpuPtr)),
+    hipPtr(std::move(other.hipPtr)),
+    glBuffer(std::move(other.glBuffer)) {
+}
+
 Buffer::~Buffer() {
     deinit();
 }

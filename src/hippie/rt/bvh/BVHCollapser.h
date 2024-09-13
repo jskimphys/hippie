@@ -129,7 +129,7 @@ public:
         HipBVH & bvh
     );
 
-    float BVHCollapser::collapse(
+    float collapse(
         int numberOfReferences,
         int maxLeafSize,
         Buffer & nodeParentIndices,
@@ -152,7 +152,7 @@ public:
         HipBVH& bvh
     );
 
-    float BVHCollapser::collapseWide(
+    float collapseWide(
         int numberOfReferences,
         int maxLeafSize,
         Buffer& nodeParentIndices,

@@ -58,6 +58,7 @@ public:
 
     Buffer(void);
     Buffer(Buffer & other);
+    Buffer(Buffer&& other);
     ~Buffer(void);
 
     void wrapCPU(void * cpuPtr, long long size);

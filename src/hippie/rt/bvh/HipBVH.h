@@ -13,8 +13,8 @@
 #include "rt/scene/Scene.h"
 #include "util/AABB.h"
 
-#define CT 3.0f
-#define CI 3.0f
+constexpr float CT = 3.0f;
+constexpr float CI = 3.0f;
 
 class HipBVH {
 

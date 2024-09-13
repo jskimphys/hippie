@@ -6,7 +6,7 @@
  */
 
 #include <QFileDialog>
-#include "Environment/AppEnvironment.h"
+#include "environment/AppEnvironment.h"
 #include "util/Logger.h"
 #include "MainWindow.h"
 

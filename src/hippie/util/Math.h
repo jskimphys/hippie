@@ -8,6 +8,12 @@
 #ifndef _MATH_H_
 #define _MATH_H_
 
+#ifdef __linux__
+#if not defined(__HIPCC__)
+#include <cmath>
+#endif  
+#endif
+
 #include "Globals.h"
 
 template <class T> HOST_DEVICE_INLINE T clamp(const T & v, const T & lo, const T & hi) { return MAX(MIN(v, hi), lo); }
@@ -216,7 +222,7 @@ public:
 	HOST_DEVICE_INLINE const Vec<T, L> & col(int c) const { return *(const Vec<T, L>*)(data() + c * L); }
 	HOST_DEVICE_INLINE Vec<T, L> & col(int c) { return *(Vec<T, L>*)(data() + c * L); }
 	HOST_DEVICE_INLINE const Vec<T, L> & getCol(int c) const { return col(c); }
-	HOST_DEVICE_INLINE Vec<T, L> getRow(int r) const { Vec<T, L> r; for (int i = 0; i < L; ++i) r[i] = get(idx, i); return r; }
+	HOST_DEVICE_INLINE Vec<T, L> getRow(int idx) const { Vec<T, L> r; for (int i = 0; i < L; ++i) r[i] = get(idx, i); return r; }
 
 	template <class V> HOST_DEVICE_INLINE void setCol(int c, const VecBase<T, L, V> & v) { col(c) = v; }
 	template <class V> HOST_DEVICE_INLINE void setRow(int r, const VecBase<T, L, V> & v) { for (int i = 0; i < L; ++i) get(r, i) = v[i]; }
@@ -401,7 +407,7 @@ template <class T, int L, class S> template <class V> HOST_DEVICE_INLINE S MatBa
 }
 
 template <class T, int L, class S> template <class V> HOST_DEVICE_INLINE S MatBase<T, L, S>::operator/(const MatBase<T, L, V> & v) const {
-	return operator*(inverse(v))
+	return operator*(inverse(v));
 }
 
 #endif /* _MATH_H_ */

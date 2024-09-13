@@ -9,7 +9,7 @@
 #include "util/Logger.h"
 #include <QFile>
 #include <QFileInfo>
-#include <QStringlist>
+#include <QStringList>
 #include <QTextStream>
 
 void CameraLoader::loadFrames(const QString & filename, Camera & camera) {

@@ -6,7 +6,7 @@
  */
 
 #ifndef _RANDOM_H_
-#define _RANDOM_H
+#define _RANDOM_H_
 
 #include <random>
 #include "Globals.h"

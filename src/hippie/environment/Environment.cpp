@@ -9,7 +9,7 @@
 #include "util/Logger.h"
 #include <QFile>
 #include <QFileInfo>
-#include <QStringlist>
+#include <QStringList>
 #include <QTextStream>
 
 Environment * Environment::instance = nullptr;
